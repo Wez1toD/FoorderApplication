@@ -19,7 +19,7 @@ public class TableActivity extends AppCompatActivity {
 
         LinkedElements();
 
-        subtitleText.setText(Html.fromHtml("<u>Menú</u>"));
+        subtitleText.setText(Html.fromHtml("<u>Mesas</u>"));
     }
 
     private void LinkedElements(){
