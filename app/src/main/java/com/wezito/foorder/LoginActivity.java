@@ -17,8 +17,8 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View view) {
         //TODO: Validar que los se haya ingresado teléfono y contraseña.
         if (view.getId() == R.id.btnLogin) {
-            //intent = new Intent(this, HomeActivity.class);
-            //startActivity(intent);
+            intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
         }
     }
 }

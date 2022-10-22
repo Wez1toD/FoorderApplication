@@ -20,6 +20,12 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".TableActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
