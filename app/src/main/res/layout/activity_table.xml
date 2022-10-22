@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="SABORES DEL PERÚ"
-        android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold" />
 
@@ -23,12 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:textColor="#000000"
         android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -39,32 +37,32 @@
 
             <Button
                 android:id="@+id/mesa1"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#931705"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 1" />
 
             <Button
                 android:id="@+id/mesa2"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#197A07"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 2" />
 
             <Button
                 android:id="@+id/mesa3"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#B58E05"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 3" />
         </LinearLayout>
 
@@ -76,29 +74,32 @@
 
             <Button
                 android:id="@+id/mesa4"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 4" />
 
             <Button
                 android:id="@+id/mesa5"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 5" />
 
             <Button
                 android:id="@+id/mesa6"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 6" />
         </LinearLayout>
 
@@ -110,29 +111,32 @@
 
             <Button
                 android:id="@+id/mesa7"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 7" />
 
             <Button
                 android:id="@+id/mesa8"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 8" />
 
             <Button
                 android:id="@+id/mesa9"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 9" />
 
         </LinearLayout>
@@ -145,31 +149,69 @@
 
             <Button
                 android:id="@+id/mesa10"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 10" />
 
             <Button
                 android:id="@+id/mesa11"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 11" />
 
             <Button
-                android:id="@+id/mesa512"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:id="@+id/mesa12"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:onClick="CheckStateTable"
                 android:text="Mesa 12" />
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawableTint="#197A07"
+            android:text="Libre" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawableTint="#B58E05"
+            android:text="Selección" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawableTint="#931705"
+            android:text="Ocupada" />
+    </LinearLayout>
+
 </LinearLayout>
