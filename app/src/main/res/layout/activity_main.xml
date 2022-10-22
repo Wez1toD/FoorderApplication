@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:layout_weight="1"
+            android:clickable="false"
             app:srcCompat="@drawable/libros_de_cocina_peruana" />
     </LinearLayout>
 
@@ -30,9 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="false"
+            android:editable="false"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
+            android:inputType="none"
             android:text="@string/app_name"
             android:textSize="48sp" />
 
@@ -41,9 +44,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="false"
+            android:editable="false"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
+            android:inputType="none"
             android:text="@string/company_name"
             android:textSize="30sp" />
     </LinearLayout>

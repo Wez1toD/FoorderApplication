@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:dividerPadding="10dp"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -31,7 +32,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
             android:text="@string/app_name"
             android:textSize="48sp" />
 
@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
             android:text="@string/company_name"
             android:textSize="30sp" />
     </LinearLayout>
@@ -61,7 +60,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_person_24" />
+                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawablePadding="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -73,7 +73,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_vpn_key_24" />
+                android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -81,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="login"
-            android:text="Ingresar"
-            android:padding="@dimen/padding_txt" />
+            android:padding="@dimen/padding_txt"
+            android:text="Ingresar" />
     </LinearLayout>
 </LinearLayout>
