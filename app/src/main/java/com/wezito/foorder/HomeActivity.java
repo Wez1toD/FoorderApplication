@@ -15,16 +15,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
     }
 
-    /*
     public void NextActivityMenuToday(View v){
-        Intent i = new Intent(this, TableActivity.class);
+        Intent i = new Intent(this, TodayMenuActivity.class);
         startActivity(i);
     }
-    public void NextActivityDishes(View v){
+
+    /*public void NextActivityDishes(View v){
         Intent i = new Intent(this, TableActivity.class);
         startActivity(i);
-    }
-    */
+    }*/
+
     public void NextActivityTable(View v){
         Intent i = new Intent(this, TableActivity.class);
         startActivity(i);
