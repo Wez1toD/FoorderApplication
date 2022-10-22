@@ -13,10 +13,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgMainHeader"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:layout_height="240dp"
+            app:srcCompat="@drawable/libros_de_cocina_peruana" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,31 +55,33 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Teléfono">
+            android:hint="Teléfono"
+            android:padding="@dimen/padding_txt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_person_24"
-                android:hint="hint" />
+                android:drawableStart="@drawable/ic_baseline_person_24" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Contraseña">
+            android:hint="Contraseña"
+            android:padding="@dimen/padding_txt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-                android:hint="hint" />
+                android:drawableStart="@drawable/ic_baseline_vpn_key_24" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingresar" />
+            android:onClick="login"
+            android:text="Ingresar"
+            android:padding="@dimen/padding_txt" />
     </LinearLayout>
 </LinearLayout>
