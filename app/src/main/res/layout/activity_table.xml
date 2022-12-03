@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="SABORES DEL PERÚ"
+        android:text="@string/company_name"
+        android:textColor="@color/black"
         android:textSize="34sp"
         android:textStyle="bold" />
 
@@ -21,6 +22,7 @@
         android:id="@+id/Subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:layout_marginBottom="8dp"
         android:textSize="24sp" />
 
@@ -194,6 +196,7 @@
             android:drawableStart="@drawable/ic_baseline_check_box_outline_blank_24"
             android:drawableTint="#197A07"
             android:text="Libre"
+            android:textColor="@color/black"
             android:padding="10dp"/>
 
         <TextView
@@ -204,6 +207,7 @@
             android:drawableStart="@drawable/ic_baseline_check_box_outline_blank_24"
             android:drawableTint="#B58E05"
             android:text="Selección"
+            android:textColor="@color/black"
             android:padding="10dp"/>
 
         <TextView
@@ -214,7 +218,22 @@
             android:drawableStart="@drawable/ic_baseline_check_box_outline_blank_24"
             android:drawableTint="#931705"
             android:text="Ocupada"
+            android:textColor="@color/black"
             android:padding="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnConfirmarMesa"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:text="Confirmar Mesa"
+            android:onClick="ConfirmarMesa"/>
     </LinearLayout>
 
 </LinearLayout>

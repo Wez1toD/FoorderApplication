@@ -53,10 +53,10 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    /*public void NextActivityDishes(View v){
-        Intent i = new Intent(this, TableActivity.class);
+    public void NextActivityDishes(View v){
+        Intent i = new Intent(this, DishesActivity.class);
         startActivity(i);
-    }*/
+    }
 
     public void NextActivityTable(View v){
         Intent i = new Intent(this, TableActivity.class);
