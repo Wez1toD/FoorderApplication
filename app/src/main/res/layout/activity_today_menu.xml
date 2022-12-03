@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".TodayMenuActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/company_name"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Precio del menú: S/ 10.00"
+            android:textColor="#000000"
+            android:textColorHighlight="#000000"
+            android:textColorHint="#1E1D1D"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entradas:"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="158dp"
+                android:layout_height="101dp"
+                app:srcCompat="@drawable/sopa"
+                android:contentDescription="Sopa de casa" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="355dp"
+                android:layout_height="wrap_content"
+                android:text="Sopa de casa" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="158dp"
+                android:layout_height="101dp"
+                app:srcCompat="@drawable/palta"
+                android:contentDescription="TODO" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ensalada de palta" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="158dp"
+                android:layout_height="101dp"
+                app:srcCompat="@drawable/ceviche"
+                android:contentDescription="TODO" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ceviche" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="30dp"
+                android:text="Platos de Fondo:"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="158dp"
+                android:layout_height="101dp"
+                app:srcCompat="@drawable/tallarinesverdes" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tallarines verdes" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="158dp"
+                android:layout_height="113dp"
+                app:srcCompat="@drawable/img" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aji de gallina" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="158dp"
+                android:layout_height="101dp"
+                app:srcCompat="@drawable/img_1" />
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seco a la norteña de pollo" />
+
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>
