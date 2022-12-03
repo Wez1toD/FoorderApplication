@@ -183,7 +183,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
@@ -191,27 +191,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawableStart="@drawable/ic_baseline_check_box_outline_blank_24"
             android:drawableTint="#197A07"
-            android:text="Libre" />
+            android:text="Libre"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawableStart="@drawable/ic_baseline_check_box_outline_blank_24"
             android:drawableTint="#B58E05"
-            android:text="Selección" />
+            android:text="Selección"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawableStart="@drawable/ic_baseline_check_box_outline_blank_24"
             android:drawableTint="#931705"
-            android:text="Ocupada" />
+            android:text="Ocupada"
+            android:padding="10dp"/>
     </LinearLayout>
 
 </LinearLayout>

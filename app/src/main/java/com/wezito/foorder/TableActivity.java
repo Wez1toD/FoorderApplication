@@ -3,16 +3,15 @@ package com.wezito.foorder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +29,10 @@ public class TableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");
         LinkedElements();
         tablesStatus.put(mesa2.getId(), 2);
 
@@ -42,6 +45,16 @@ public class TableActivity extends AppCompatActivity {
     private void LinkedElements(){
         subtitleText = (TextView) findViewById(R.id.Subtitle);
 
+        LinkingTables();
+
+        tables = new Button[]{mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10, mesa11, mesa12};
+
+        for(int i = 0; i < tables.length; i++){
+            tablesStatus.put(tables[i].getId(), 0);
+        }
+    }
+
+    private void LinkingTables(){
         mesa1 = (Button) findViewById(R.id.mesa1);
         mesa2 = (Button) findViewById(R.id.mesa2);
         mesa3 = (Button) findViewById(R.id.mesa3);
@@ -54,17 +67,10 @@ public class TableActivity extends AppCompatActivity {
         mesa10 = (Button) findViewById(R.id.mesa10);
         mesa11 = (Button) findViewById(R.id.mesa11);
         mesa12 = (Button) findViewById(R.id.mesa12);
-
-        tables = new Button[]{mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10, mesa11, mesa12};
-
-        for(int i = 0; i < tables.length; i++){
-            tablesStatus.put(tables[i].getId(), 0);
-        }
     }
 
     public void CheckStateTable(View v){
         if(tablesStatus.get(v.getId()) == 2){
-
             Toast.makeText(getApplicationContext(), "Mesa ocupada", Toast.LENGTH_LONG).show();
         }
         else if(tablesStatus.get(v.getId()) == 0){
