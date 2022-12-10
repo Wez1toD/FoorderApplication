@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 
-public class TableActivity extends AppCompatActivity {
+public class TablesActivity extends AppCompatActivity {
 
     private HashMap<Integer, Integer> tableStatus = new HashMap<>();
 
@@ -135,7 +135,7 @@ public class TableActivity extends AppCompatActivity {
                     switch (status){
                         case 2:
                             AlertDialog occupedMessage = new AlertDialog
-                                    .Builder(TableActivity.this)
+                                    .Builder(TablesActivity.this)
                                     .setNegativeButton("Aceptar", (dialogInterface, i) -> dialogInterface.dismiss())
                                     .setTitle("Error")
                                     .setMessage("La mesa esta ocupada.")
@@ -194,7 +194,7 @@ public class TableActivity extends AppCompatActivity {
             startActivity(intent);
         }else{
             AlertDialog occupedMessage = new AlertDialog
-                    .Builder(TableActivity.this)
+                    .Builder(TablesActivity.this)
                     .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

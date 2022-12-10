@@ -1,4 +1,4 @@
-package com.wezito.foorder.model;
+package com.wezito.foorder.Model;
 
 public class User {
     private String uid;

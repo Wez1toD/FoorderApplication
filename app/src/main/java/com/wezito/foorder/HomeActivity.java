@@ -48,18 +48,20 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
-    public void NextActivityMenuToday(View v){
-        Intent i = new Intent(this, TodayMenuActivity.class);
-        startActivity(i);
+    public void redirect(View view) {
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.btnTodayMenu:
+                intent = new Intent(this, TodayMenuActivity.class);
+                break;
+            case R.id.btnDishes:
+                intent = new Intent(this, DishesActivity.class);
+                break;
+            case R.id.btnTables:
+                intent = new Intent(this, TablesActivity.class);
+                break;
+        }
+        startActivity(intent);
     }
 
-    public void NextActivityDishes(View v){
-        Intent i = new Intent(this, DishesActivity.class);
-        startActivity(i);
-    }
-
-    public void NextActivityTable(View v){
-        Intent i = new Intent(this, TableActivity.class);
-        startActivity(i);
-    }
 }

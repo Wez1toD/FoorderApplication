@@ -2,4 +2,5 @@
 <resources>
     <dimen name="padding_txt">10dp</dimen>
     <dimen name="marging_txt">15dp</dimen>
+    <dimen name="toolbar_detail">350dp</dimen>
 </resources>

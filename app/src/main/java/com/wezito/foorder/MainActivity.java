@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void register(View view) {
+    public void redirect(View view) {
         if (view.getId() == R.id.btnRegister) {
             intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
