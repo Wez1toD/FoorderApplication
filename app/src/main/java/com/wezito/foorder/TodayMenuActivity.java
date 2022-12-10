@@ -85,10 +85,7 @@ public class TodayMenuActivity extends AppCompatActivity {
                 intent = new Intent(this, MainActivity.class);
                 break;
             case R.id.mnCart:
-
-                break;
-            case R.id.mnOrders:
-
+                intent = new Intent(this, ShoppingCartActivity.class);
                 break;
             case R.id.mnLogout:
                 FirebaseAuth.getInstance().signOut();

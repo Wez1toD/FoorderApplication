@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FOORDER</string>
     <string name="company_name">SABORES DEL PERÚ</string>
+    <string name="shopping_cart_title">Orden Total</string>
 </resources>

@@ -7,13 +7,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.wezito.foorder.Db.DbHelper;
+import com.wezito.foorder.Db.DbPedido;
 
 public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -22,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     @Override
@@ -38,17 +43,14 @@ public class HomeActivity extends AppCompatActivity {
                 intent = new Intent(this, MainActivity.class);
                 break;
             case R.id.mnCart:
-
-                break;
-            case R.id.mnOrders:
-
+                intent = new Intent(this, ShoppingCartActivity.class);
                 break;
             case R.id.mnLogout:
                 FirebaseAuth.getInstance().signOut();
                 intent = new Intent(this, MainActivity.class);
                 break;
         }
-        startActivity(intent);
+        if(item.getItemId() != R.id.mnHome){startActivity(intent);}
         return true;
     }
     
@@ -67,5 +69,4 @@ public class HomeActivity extends AppCompatActivity {
         }
         startActivity(intent);
     }
-
 }

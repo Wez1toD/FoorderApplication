@@ -50,6 +50,7 @@
             android:layout_marginBottom="30dp"
             android:onClick="redirect"
             android:text="mesas" />
+
     </LinearLayout>
 
 </LinearLayout>

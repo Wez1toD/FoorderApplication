@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.wezito.foorder.Db.DbHelper;
+import com.wezito.foorder.Db.DbPedido;
 import com.wezito.foorder.Model.Food;
 import com.wezito.foorder.View.FoodView;
 
@@ -42,6 +45,9 @@ public class FoodDetailActivity extends AppCompatActivity {
     private DatabaseReference price;
     private DateFormat dateFormat;
     private Date date;
+
+    private String name_food;
+    private int price_food;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,15 +100,14 @@ public class FoodDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Food dish = snapshot.getValue(Food.class);
-                /*Picasso.get()
-                    .load("https://www.softwinperu.com/sites/default/files/styles/800x500/public/blog/detail/Actualizar%20Drupal%20y%20sus%20m%C3%B3dulos%20con%20composer.jpg")
-                    .into(imgFood);*/
                 Picasso.get()
                     .load(dish.getImage())
                     .into(imgFood);
                 collapsingToolbarLayout.setTitle(dish.getName());
                 tvName.setText(dish.getName());
                 tvDescription.setText(dish.getDescription());
+
+                name_food = dish.getName();
             }
 
             @Override
@@ -114,6 +119,8 @@ public class FoodDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 tvPrice.setText("" + snapshot.getValue());
+
+                price_food = Integer.parseInt(snapshot.getValue().toString());
             }
 
             @Override
@@ -133,7 +140,6 @@ public class FoodDetailActivity extends AppCompatActivity {
             tvQuantity.setText(String.valueOf(quantity));
         }
 
-        //Toast.makeText(this, tvQuantity.getText(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -149,8 +155,28 @@ public class FoodDetailActivity extends AppCompatActivity {
             case R.id.mnBack:
                 intent = new Intent(this, TodayMenuActivity.class);
                 break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
         startActivity(intent);
         return true;
+    }
+
+    public void AddToCart(View v){
+        int quantity_dishes = Integer.parseInt(tvQuantity.getText().toString());
+        if(quantity_dishes > 0){
+            DbPedido dbPedido = new DbPedido(FoodDetailActivity.this);
+            long id = dbPedido.InsertOrder(name_food, Integer.valueOf(tvQuantity.getText().toString()), (price_food * quantity_dishes));
+
+            if(id > 0){
+                Toast.makeText(FoodDetailActivity.this, "Se ha registrado su pedido con éxito", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, TodayMenuActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(FoodDetailActivity.this, "Error al guardar su pedido", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(FoodDetailActivity.this, "Seleccione mínimo un plato", Toast.LENGTH_SHORT).show();
+        }
     }
 }
