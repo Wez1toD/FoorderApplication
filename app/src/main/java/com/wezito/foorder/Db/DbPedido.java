@@ -39,6 +39,20 @@ public class DbPedido extends DbHelper{
         return id;
     }
 
+    public void DeleteOrder(int id_food){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        db.execSQL("DELETE FROM " + TABLE_ORDENES + " WHERE " + "id = " + id_food);
+    }
+
+    public void DeleteOrders(){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        db.execSQL("DELETE FROM " + TABLE_ORDENES);
+    }
+
     public ArrayList<Order> showOrders(){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

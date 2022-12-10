@@ -140,7 +140,7 @@ public class FoodDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.back_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -148,13 +148,18 @@ public class FoodDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = null;
         switch (item.getItemId()) {
-            case R.id.mnBack:
-                intent = new Intent(this, TodayMenuActivity.class);
+            case R.id.mnHome:
+                intent = new Intent(this, MainActivity.class);
                 break;
-            default:
-                return super.onOptionsItemSelected(item);
+            case R.id.mnCart:
+                intent = new Intent(this, ShoppingCartActivity.class);
+                break;
+            case R.id.mnLogout:
+                FirebaseAuth.getInstance().signOut();
+                intent = new Intent(this, MainActivity.class);
+                break;
         }
-        startActivity(intent);
+        if(item.getItemId() != R.id.mnHome){startActivity(intent);}
         return true;
     }
 
