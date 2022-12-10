@@ -1,10 +1,14 @@
 package com.wezito.foorder;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
-
+    
     public void redirect(View view) {
         Intent intent = null;
         switch (view.getId()) {
