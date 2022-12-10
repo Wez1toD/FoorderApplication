@@ -18,6 +18,9 @@
         android:title="Ordenes"
         app:showAsAction="ifRoom|withText" />
     <item
+        android:id="@+id/mnAdmin"
+        android:title="Administración" />
+    <item
         android:id="@+id/mnLogout"
         android:icon="@drawable/ic_baseline_exit_to_app_24"
         android:title="Cerrar sesión"

@@ -3,8 +3,11 @@ package com.wezito.foorder;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -121,11 +125,11 @@ public class FoodDetailActivity extends AppCompatActivity {
         if (x){
             quantity++;
             tvQuantity.setText(String.valueOf(quantity));
-        } else {
+        } else if(!x && quantity > 0){
             quantity--;
             tvQuantity.setText(String.valueOf(quantity));
         }
 
-        Toast.makeText(this, tvQuantity.getText(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, tvQuantity.getText(), Toast.LENGTH_SHORT).show();
     }
 }
