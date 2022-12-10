@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -137,9 +140,11 @@ public class TableActivity extends AppCompatActivity {
                             AlertDialog occupedMessage = new AlertDialog
                                     .Builder(TableActivity.this)
                                     .setNegativeButton("Aceptar", (dialogInterface, i) -> dialogInterface.dismiss())
-                                    .setTitle("Error")
+                                    .setTitle("Lo sentimos")
                                     .setMessage("La mesa esta ocupada.")
                                     .create();
+                            Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                            vibrator.vibrate(300);
                             occupedMessage.show();
                             break;
                         case 0:
@@ -190,6 +195,7 @@ public class TableActivity extends AppCompatActivity {
         }
         if(mesa_elegida != 0){
             db.child("Mesas").child(String.valueOf(mesa_elegida)).child("estado").setValue(2);
+            Toast.makeText(getApplicationContext(),"Se ha seleccionado su mesa con éxito",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }else{

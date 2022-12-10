@@ -1,10 +1,14 @@
 package com.wezito.foorder;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,13 +53,38 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void NextActivityMenuToday(View v){
-        Intent i = new Intent(this, TodayMenuActivity.class);
-        startActivity(i);
+        AlertDialog occupedMessage = new AlertDialog
+                .Builder(HomeActivity.this)
+                .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(HomeActivity.this, TodayMenuActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("Cancelar", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setTitle("Aviso")
+                .setMessage("Aún no está terminado")
+                .create();
+        occupedMessage.show();
     }
 
     public void NextActivityDishes(View v){
-        Intent i = new Intent(this, DishesActivity.class);
-        startActivity(i);
+        AlertDialog occupedMessage = new AlertDialog
+                .Builder(HomeActivity.this)
+                .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(HomeActivity.this, DishesActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("Cancelar", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setTitle("Aviso")
+                .setMessage("Aún no está terminado")
+                .create();
+        occupedMessage.show();
+
     }
 
     public void NextActivityTable(View v){

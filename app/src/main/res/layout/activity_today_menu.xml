@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/company_name"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textColorHint="#000000"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Precio del menú: S/ 10.00"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textColorHighlight="#000000"
             android:textColorHint="#1E1D1D"
             android:textStyle="normal" />
@@ -38,21 +38,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Entradas:"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textColorHint="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="158dp"
                 android:layout_height="101dp"
-                app:srcCompat="@drawable/sopa"
-                android:contentDescription="Sopa de casa" />
+                android:contentDescription="Sopa de casa"
+                app:srcCompat="@drawable/sopa" />
 
             <CheckBox
                 android:id="@+id/checkBox4"
@@ -64,8 +64,8 @@
                 android:id="@+id/imageView5"
                 android:layout_width="158dp"
                 android:layout_height="101dp"
-                app:srcCompat="@drawable/palta"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/palta" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
@@ -77,8 +77,8 @@
                 android:id="@+id/imageView6"
                 android:layout_width="158dp"
                 android:layout_height="101dp"
-                app:srcCompat="@drawable/ceviche"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/ceviche" />
 
             <CheckBox
                 android:id="@+id/checkBox6"
@@ -147,5 +147,17 @@
                 android:text="Seco a la norteña de pollo" />
 
         </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
+                    android:text="Confirmar selección" />
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
