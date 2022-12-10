@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,13 +21,17 @@ import com.wezito.foorder.Db.DbHelper;
 import com.wezito.foorder.Db.DbPedido;
 
 public class HomeActivity extends AppCompatActivity {
+
     private FirebaseAuth mAuth;
+    private Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mAuth = FirebaseAuth.getInstance();
 
+        bundle = getIntent().getExtras();
     }
 
     @Override
@@ -67,6 +72,8 @@ public class HomeActivity extends AppCompatActivity {
                 intent = new Intent(this, TablesActivity.class);
                 break;
         }
-        startActivity(intent);
+        if(intent != null) {
+            startActivity(intent);
+        }
     }
 }

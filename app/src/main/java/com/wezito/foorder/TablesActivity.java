@@ -195,7 +195,7 @@ public class TablesActivity extends AppCompatActivity {
         if(mesa_elegida != 0){
             db.child("Mesas").child(String.valueOf(mesa_elegida)).child("estado").setValue(2);
             Toast.makeText(getApplicationContext(),"Se ha seleccionado su mesa con éxito",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }else{
             AlertDialog occupedMessage = new AlertDialog
