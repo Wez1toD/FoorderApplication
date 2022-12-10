@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
-    
+
     public void redirect(View view) {
         Intent intent = null;
         switch (view.getId()) {

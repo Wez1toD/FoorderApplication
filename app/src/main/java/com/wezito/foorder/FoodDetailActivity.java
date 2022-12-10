@@ -37,9 +37,9 @@ public class FoodDetailActivity extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private FloatingActionButton btnCart;
     private String fid = "";
+    private String category = "";
     private FirebaseDatabase db;
-    private DatabaseReference food;
-    private DatabaseReference price;
+    private DatabaseReference dbReference;
     private DateFormat dateFormat;
     private Date date;
     @Override
@@ -67,11 +67,18 @@ public class FoodDetailActivity extends AppCompatActivity {
 
         if (getIntent() != null) {
             fid = getIntent().getStringExtra("foodId");
+            category = getIntent().getStringExtra("category");
         }
-        if(!fid.isEmpty()) {
-            price = db.getReference("todaymenu").child(currentDate).child("price");
-            food = db.getReference("todaymenu").child(currentDate).child("dishes").child(fid);
-            loadFood(food, price);
+        if(!fid.isEmpty() && !category.isEmpty()) {
+            switch (category) {
+                case "mains":
+                    dbReference = db.getReference("todaymenu").child(currentDate).child(category).child(fid);
+                    break;
+                case "carte_dishes":
+                    dbReference = db.getReference("foods").child(category).child(fid);
+                    break;
+            }
+            loadFood(dbReference);
         }
 
         btnDec.setOnClickListener(new View.OnClickListener() {
@@ -89,31 +96,18 @@ public class FoodDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void loadFood(DatabaseReference food, DatabaseReference price) {
-        food.addValueEventListener(new ValueEventListener() {
+    private void loadFood(DatabaseReference dbReference) {
+        dbReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Food dish = snapshot.getValue(Food.class);
-                /*Picasso.get()
-                    .load("https://www.softwinperu.com/sites/default/files/styles/800x500/public/blog/detail/Actualizar%20Drupal%20y%20sus%20m%C3%B3dulos%20con%20composer.jpg")
-                    .into(imgFood);*/
                 Picasso.get()
                     .load(dish.getImage())
                     .into(imgFood);
                 collapsingToolbarLayout.setTitle(dish.getName());
                 tvName.setText(dish.getName());
                 tvDescription.setText(dish.getDescription());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        price.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                tvPrice.setText("" + snapshot.getValue());
+                tvPrice.setText("" + dish.getPrice());
             }
 
             @Override
@@ -128,12 +122,10 @@ public class FoodDetailActivity extends AppCompatActivity {
         if (x){
             quantity++;
             tvQuantity.setText(String.valueOf(quantity));
-        } else if(!x && quantity > 0){
+        } else if(quantity > 0){
             quantity--;
             tvQuantity.setText(String.valueOf(quantity));
         }
-
-        //Toast.makeText(this, tvQuantity.getText(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

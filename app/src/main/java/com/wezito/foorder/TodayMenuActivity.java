@@ -42,7 +42,7 @@ public class TodayMenuActivity extends AppCompatActivity {
         date = new Date();
         String currentDate = dateFormat.format(date);
         db = FirebaseDatabase.getInstance();
-        todaymenu = db.getReference("todaymenu").child(currentDate).child("dishes");
+        todaymenu = db.getReference("todaymenu").child(currentDate).child("mains");
         rv = (RecyclerView) findViewById(R.id.rwFoods);
         rv.setHasFixedSize(true);
         lm = new LinearLayoutManager(this);
