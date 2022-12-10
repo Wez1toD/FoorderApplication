@@ -31,9 +31,8 @@ public class FoodAdapter extends FirebaseRecyclerAdapter<Food, FoodAdapter.FoodV
     protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull Food model) {
         model.setFid("" + position);
         holder.foodName.setText(model.getName());
-        String img_url = model.getImage();
         Picasso.get()
-                .load(img_url)
+                .load(model.getImage())
                 .into(holder.foodImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +40,7 @@ public class FoodAdapter extends FirebaseRecyclerAdapter<Food, FoodAdapter.FoodV
             public void onClick(View view) {
                 Intent foodDetail = new Intent(context, FoodDetailActivity.class);
                 foodDetail.putExtra("foodId", model.getFid());
+                foodDetail.putExtra("category", model.getCategory());
                 context.startActivity(foodDetail);
             }
         });
