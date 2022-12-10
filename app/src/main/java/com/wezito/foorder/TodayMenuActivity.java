@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.wezito.foorder.Adapters.FoodAdapter;
@@ -72,7 +73,7 @@ public class TodayMenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.back_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -80,7 +81,17 @@ public class TodayMenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = null;
         switch (item.getItemId()) {
-            case R.id.mnBackHome:
+            case R.id.mnHome:
+                intent = new Intent(this, MainActivity.class);
+                break;
+            case R.id.mnCart:
+
+                break;
+            case R.id.mnOrders:
+
+                break;
+            case R.id.mnLogout:
+                FirebaseAuth.getInstance().signOut();
                 intent = new Intent(this, MainActivity.class);
                 break;
         }

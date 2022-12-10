@@ -94,8 +94,11 @@ public class FoodDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Food dish = snapshot.getValue(Food.class);
-                Picasso.get()
+                /*Picasso.get()
                     .load("https://www.softwinperu.com/sites/default/files/styles/800x500/public/blog/detail/Actualizar%20Drupal%20y%20sus%20m%C3%B3dulos%20con%20composer.jpg")
+                    .into(imgFood);*/
+                Picasso.get()
+                    .load(dish.getImage())
                     .into(imgFood);
                 collapsingToolbarLayout.setTitle(dish.getName());
                 tvName.setText(dish.getName());

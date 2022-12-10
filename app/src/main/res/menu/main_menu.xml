@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/mnHome"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_baseline_home_white_24"
         android:title="Inicio"
         app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/mnCart"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:icon="@drawable/ic_baseline_shopping_cart_white_24"
         android:title="Cesta"
         app:showAsAction="ifRoom|withText" />
     <item

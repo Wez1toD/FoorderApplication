@@ -31,9 +31,11 @@ public class FoodAdapter extends FirebaseRecyclerAdapter<Food, FoodAdapter.FoodV
     protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull Food model) {
         model.setFid("" + position);
         holder.foodName.setText(model.getName());
+        String img_url = model.getImage();
         Picasso.get()
-            .load("https://www.softwinperu.com/sites/default/files/styles/800x500/public/blog/detail/Actualizar%20Drupal%20y%20sus%20m%C3%B3dulos%20con%20composer.jpg")
-            .into(holder.foodImage);
+                .load(img_url)
+                .into(holder.foodImage);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
