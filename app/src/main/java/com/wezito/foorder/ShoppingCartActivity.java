@@ -6,13 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.wezito.foorder.Adapters.OrderAdapter;
 import com.wezito.foorder.Db.DbPedido;
 import com.wezito.foorder.Model.Order;
@@ -21,9 +23,10 @@ import java.util.ArrayList;
 
 public class ShoppingCartActivity extends AppCompatActivity {
 
-    RecyclerView listaOrder;
-    ArrayList<Order> orderArrayList;
-    DbPedido dbPedido;
+    private RecyclerView listaOrder;
+    private ArrayList<Order> orderArrayList;
+    private DbPedido dbPedido;
+    private DatabaseReference dbReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +43,32 @@ public class ShoppingCartActivity extends AppCompatActivity {
         OrderAdapter orderAdapter = new OrderAdapter(dbPedido.showOrders());
 
         listaOrder.setAdapter(orderAdapter);
+
+        dbReference = FirebaseDatabase.getInstance().getReference().child("orders");
     }
 
     public void ConfirmOrder(View v){
-        dbPedido.DeleteOrders();
-        Toast.makeText(this, "Se ha confirmado su orden", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+        if(dbPedido.EmptyTable()){
+            Toast.makeText(this, "Se ha confirmado su orden", Toast.LENGTH_SHORT).show();
+
+            orderArrayList = dbPedido.showOrders();
+
+            DatabaseReference db_order = dbReference.push();
+            int price = 0;
+
+            for(Order order : orderArrayList){
+                db_order.child(order.getName()).setValue(order.getQuantity());
+                price += order.getPrice();
+            }
+            db_order.child("total_price").setValue(price);
+
+            Intent intent = new Intent(this, HomeActivity.class);
+
+            dbPedido.DeleteOrders();
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "No se puede procesar su orden", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

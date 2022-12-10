@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -53,6 +54,32 @@ public class DbPedido extends DbHelper{
         db.execSQL("DELETE FROM " + TABLE_ORDENES);
     }
 
+    public boolean EmptyTable(){
+        int count = 0;
+
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT count(*) FROM " + TABLE_ORDENES, null);
+
+        try {
+            if(cursor != null)
+                if(cursor.getCount() > 0){
+                    cursor.moveToFirst();
+                    count = cursor.getInt(0);
+                }
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        if(count>0)
+            return true;
+        else
+            return false;
+    }
+
     public ArrayList<Order> showOrders(){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -75,7 +102,6 @@ public class DbPedido extends DbHelper{
             }while(cursorOrder.moveToNext());
         }
         cursorOrder.close();
-
         return orderList;
     }
 }
