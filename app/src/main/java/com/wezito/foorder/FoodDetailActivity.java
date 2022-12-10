@@ -135,4 +135,22 @@ public class FoodDetailActivity extends AppCompatActivity {
 
         //Toast.makeText(this, tvQuantity.getText(), Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.back_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent = null;
+        switch (item.getItemId()) {
+            case R.id.mnBack:
+                intent = new Intent(this, TodayMenuActivity.class);
+                break;
+        }
+        startActivity(intent);
+        return true;
+    }
 }
