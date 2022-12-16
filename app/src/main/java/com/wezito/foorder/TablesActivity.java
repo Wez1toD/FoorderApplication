@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,19 +28,28 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.wezito.foorder.Adapters.OrderAdapter;
+import com.wezito.foorder.Db.DbPedido;
+import com.wezito.foorder.Model.Order;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class TablesActivity extends AppCompatActivity {
 
     private HashMap<Integer, Integer> tableStatus = new HashMap<>();
+    private HashMap<Integer, Integer> tableNum = new HashMap<>();
 
     private TextView subtitleText;
     private Button mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10, mesa11, mesa12;
     private Button[] tables;
 
     private DatabaseReference db;
+    private ArrayList<Order> orderArrayList;
+    private DbPedido dbPedido;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference dbReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,7 @@ public class TablesActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance().getReference();
 
         LinkedElements();
+
 
         subtitleText.setText(Html.fromHtml("<u>Mesas</u>"));
 
@@ -108,9 +120,16 @@ public class TablesActivity extends AppCompatActivity {
 
         tables = new Button[]{mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10, mesa11, mesa12};
 
-        for (Button table : tables) {
-            tableStatus.put(table.getId(), 0);
+        for(int i=0; i<tables.length; i++){
+            tableNum.put(tables[i].getId(), i + 1);
         }
+
+        dbPedido = new DbPedido(TablesActivity.this);
+
+        orderArrayList = new ArrayList<>();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        dbReference = firebaseDatabase.getReference().child("orders");
     }
 
     private void LinkingTables(){
@@ -194,7 +213,23 @@ public class TablesActivity extends AppCompatActivity {
         }
         if(mesa_elegida != 0){
             db.child("Mesas").child(String.valueOf(mesa_elegida)).child("estado").setValue(2);
-            Toast.makeText(getApplicationContext(),"Se ha seleccionado su mesa con éxito",Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, "Se ha confirmado su orden", Toast.LENGTH_SHORT).show();
+
+            orderArrayList = dbPedido.showOrders();
+
+            DatabaseReference db_order = dbReference.push();
+            int price = 0;
+
+            for(Order order : orderArrayList){
+                db_order.child(order.getName()).setValue(order.getQuantity());
+                price += order.getPrice();
+            }
+            db_order.child("total_price").setValue(price);
+            db_order.child("table_num").setValue(tableNum.get(mesa_elegida));
+
+            dbPedido.DeleteOrders();
+
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }else{

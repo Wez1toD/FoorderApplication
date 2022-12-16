@@ -11,10 +11,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.wezito.foorder.Adapters.OrderAdapter;
 import com.wezito.foorder.Db.DbPedido;
 import com.wezito.foorder.Model.Order;
@@ -24,9 +28,10 @@ import java.util.ArrayList;
 public class ShoppingCartActivity extends AppCompatActivity {
 
     private RecyclerView listaOrder;
-    private ArrayList<Order> orderArrayList;
     private DbPedido dbPedido;
-    private DatabaseReference dbReference;
+    private DatabaseReference db;
+
+    private boolean disponibilty = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,36 +43,41 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
         dbPedido = new DbPedido(ShoppingCartActivity.this);
 
-        orderArrayList = new ArrayList<>();
-
         OrderAdapter orderAdapter = new OrderAdapter(dbPedido.showOrders());
-
         listaOrder.setAdapter(orderAdapter);
 
-        dbReference = FirebaseDatabase.getInstance().getReference().child("orders");
+        db = FirebaseDatabase.getInstance().getReference();
+        db.child("Mesas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        if(Integer.parseInt(ds.child("estado").getValue().toString()) == 0){
+                            disponibilty = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     public void ConfirmOrder(View v){
         if(dbPedido.EmptyTable()){
-            Toast.makeText(this, "Se ha confirmado su orden", Toast.LENGTH_SHORT).show();
-
-            orderArrayList = dbPedido.showOrders();
-
-            DatabaseReference db_order = dbReference.push();
-            int price = 0;
-
-            for(Order order : orderArrayList){
-                db_order.child(order.getName()).setValue(order.getQuantity());
-                price += order.getPrice();
+            if(disponibilty == true){
+                Intent intent = new Intent(this, TablesActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Lo sentimos, no hay mesas disponibles", Toast.LENGTH_SHORT).show();
             }
-            db_order.child("total_price").setValue(price);
 
-            Intent intent = new Intent(this, HomeActivity.class);
-
-            dbPedido.DeleteOrders();
-            startActivity(intent);
         }else{
-            Toast.makeText(this, "No se puede procesar su orden", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Su carrito está vacío. No se puede procesar su orden", Toast.LENGTH_SHORT).show();
         }
     }
 

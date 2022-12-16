@@ -39,17 +39,10 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:onClick="redirect"
             android:text="platos a la carta" />
 
-        <Button
-            android:id="@+id/btnTables"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:onClick="redirect"
-            android:text="mesas" />
 
     </LinearLayout>
 

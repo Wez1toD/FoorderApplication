@@ -68,9 +68,6 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.btnDishes:
                 intent = new Intent(this, DishesActivity.class);
                 break;
-            case R.id.btnTables:
-                intent = new Intent(this, TablesActivity.class);
-                break;
         }
         if(intent != null) {
             startActivity(intent);
