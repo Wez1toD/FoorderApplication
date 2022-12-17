@@ -60,7 +60,6 @@ public class TablesActivity extends AppCompatActivity {
 
         LinkedElements();
 
-
         subtitleText.setText(Html.fromHtml("<u>Mesas</u>"));
 
         db.child("Mesas").addValueEventListener(new ValueEventListener() {
@@ -123,6 +122,7 @@ public class TablesActivity extends AppCompatActivity {
         for(int i=0; i<tables.length; i++){
             tableNum.put(tables[i].getId(), i + 1);
         }
+        Log.i("INFOX", String.valueOf(mesa6.getId()));
 
         dbPedido = new DbPedido(TablesActivity.this);
 
@@ -246,6 +246,8 @@ public class TablesActivity extends AppCompatActivity {
                     .setMessage("Elija una mesa para continuar.")
                     .create();
             occupedMessage.show();
+            Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(300);
         }
     }
 

@@ -75,7 +75,6 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(this, "Lo sentimos, no hay mesas disponibles", Toast.LENGTH_SHORT).show();
             }
-
         }else{
             Toast.makeText(this, "Su carrito está vacío. No se puede procesar su orden", Toast.LENGTH_SHORT).show();
         }

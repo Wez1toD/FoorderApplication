@@ -8,7 +8,7 @@
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_dishes.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_food_detail.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_foods_item.xml" value="0.33" />
-        <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_order_item.xml" value="0.33" />
@@ -17,6 +17,7 @@
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_shopping_item.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_table.xml" value="0.38697916666666665" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/activity_today_menu.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/popup_login_admin.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/layout/popup_orders_item.xml" value="0.2578125" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/menu/back_menu.xml" value="0.67" />
         <entry key="..\:/AndroidProjects/Foorder/app/src/main/res/menu/helppopup.xml" value="0.3859375" />

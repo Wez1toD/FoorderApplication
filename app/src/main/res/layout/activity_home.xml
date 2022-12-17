@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|center_vertical"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="8dp"
     tools:context=".HomeActivity">
@@ -16,8 +16,8 @@
         android:layout_marginBottom="30dp"
         android:gravity="center"
         android:text="SABORES\nDEL PERÚ"
-        android:textColor="@color/black"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="50sp" />
 
     <LinearLayout
