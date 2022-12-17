@@ -54,6 +54,9 @@ public class HomeActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 intent = new Intent(this, MainActivity.class);
                 break;
+            case R.id.mnAdmin:
+                intent = new Intent(this, AdministrationActivity.class);
+                break;
         }
         if(item.getItemId() != R.id.mnHome){startActivity(intent);}
         return true;
@@ -68,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.btnDishes:
                 intent = new Intent(this, DishesActivity.class);
                 break;
+
         }
         if(intent != null) {
             startActivity(intent);

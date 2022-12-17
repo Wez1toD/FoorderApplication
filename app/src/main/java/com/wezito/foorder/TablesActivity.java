@@ -227,6 +227,7 @@ public class TablesActivity extends AppCompatActivity {
             }
             db_order.child("total_price").setValue(price);
             db_order.child("table_num").setValue(tableNum.get(mesa_elegida));
+            db_order.child("status").setValue(1);
 
             dbPedido.DeleteOrders();
 

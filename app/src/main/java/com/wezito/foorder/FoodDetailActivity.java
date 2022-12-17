@@ -171,7 +171,7 @@ public class FoodDetailActivity extends AppCompatActivity {
 
             if(id > 0){
                 Toast.makeText(FoodDetailActivity.this, "Se ha registrado su pedido con éxito", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, TodayMenuActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
             }else{
                 Toast.makeText(FoodDetailActivity.this, "Error al guardar su pedido", Toast.LENGTH_SHORT).show();

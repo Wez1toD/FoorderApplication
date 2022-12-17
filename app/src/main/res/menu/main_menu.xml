@@ -13,9 +13,6 @@
         android:title="Cesta"
         app:showAsAction="ifRoom|withText" />
     <item
-        android:id="@+id/mnOrdenes"
-        android:title="Ordenes" />
-    <item
         android:id="@+id/mnAdmin"
         android:title="Administración" />
     <item
