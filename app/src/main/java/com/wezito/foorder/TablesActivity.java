@@ -193,13 +193,13 @@ public class TablesActivity extends AppCompatActivity {
     private void ChangeStateTable(Button b, int state){
         switch (state){
             case 0:
-                b.setBackgroundColor(ContextCompat.getColor(this, R.color.unoccupied));
+                b.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
                 break;
             case 1:
-                b.setBackgroundColor(ContextCompat.getColor(this,R.color.selected));
+                b.setBackgroundColor(ContextCompat.getColor(this,R.color.yellow));
                 break;
             case 2:
-                b.setBackgroundColor(ContextCompat.getColor(this,R.color.occupied));
+                b.setBackgroundColor(ContextCompat.getColor(this,R.color.red));
         }
     }
 
